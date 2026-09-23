@@ -27,7 +27,7 @@ export default function AllFoodsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/foods`)
       .then((res) => res.json())
       .then((data) => {
         if (data.data && Array.isArray(data.data)) {

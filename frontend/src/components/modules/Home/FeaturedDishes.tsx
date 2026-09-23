@@ -15,7 +15,7 @@ type Food = {
 export default async function FeaturedDishes() {
   let foods: Food[] = [];
   try {
-    const res = await fetch("http://localhost:5000/foods", { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/foods`, { cache: "no-store" });
     if (res.ok) {
       const json = await res.json();
       foods = json.data || [];
