@@ -17,6 +17,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req: Request, res: Response) => {
+  res.send("FreshBites API is running!");
+});
+
 const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/fresh-bites";
 
 const client = new MongoClient(uri, {
